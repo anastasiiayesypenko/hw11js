@@ -1,0 +1,20 @@
+* {
+    list-style: none;
+}
+.card-section {
+    display: flex;
+    flex-wrap: wrap;
+}
+.card {
+    text-align: center;
+    padding: 10px;
+}
+.checkboxes {
+    display: flex;
+    justify-content: space-around;
+    width: 500px;
+    margin: 0 auto;
+}
+.buttons {
+    text-align: center;
+}
