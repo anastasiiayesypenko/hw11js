@@ -30,10 +30,57 @@ function onFilter(event) {
         }
     });
     let filtredLaptops = laptops.filter((el) => {
-        if (filter.size.includes(el.size) || filter.color.includes(el.color) || filter.release_date.includes(el.release_date)){
-            return el;
+      if (filter.size.includes(el.size) && filter.color.includes(el.color) && filter.release_date.includes(el.release_date)){
+        return el;
+      };
+
+      if (filter.release_date.length === 0) {
+        if (filter.size.includes(el.size) && filter.color.includes(el.color)){
+          return el;
         };
-    })
+        if (filter.color.length === 0) {
+          if (filter.size.includes(el.size)){
+            return el;
+          };
+        }
+        if (filter.size.length === 0) {
+          if (filter.color.includes(el.color)){
+            return el;
+          };
+        }
+      }
+      if (filter.size.length === 0) {
+        if (filter.release_date.includes(el.release_date) && filter.color.includes(el.color)){
+          return el;
+        };
+        if (filter.color.length === 0) {
+          if (filter.release_date.includes(el.release_date)){
+            return el;
+          };
+        }
+        if (filter.release_date.length === 0) {
+          if (filter.color.includes(el.color)){
+            return el;
+          };
+        }
+      }
+      if (filter.color.length === 0) {
+        if (filter.size.includes(el.size) && filter.release_date.includes(el.release_date)){
+          return el;
+        };
+        if (filter.size.length === 0) {
+          if (filter.release_date.includes(el.release_date)){
+            return el;
+          };
+        }
+        if (filter.release_date.length === 0) {
+          if (filter.size.includes(el.size)){
+            return el;
+          };
+        }
+      }
+     
+    });
 
     let cardMarkup = filtredLaptops.reduce((acc, elem) => acc + compileTemplate(elem), '');
     cardSection.insertAdjacentHTML('afterbegin', cardMarkup);
