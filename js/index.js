@@ -30,7 +30,7 @@ function onFilter(event) {
         }
     });
     let filtredLaptops = laptops.filter((el) => {
-        if (filter.size.includes(el.size) && filter.color.includes(el.color) && filter.release_date.includes(el.release_date)){
+        if (filter.size.includes(el.size) || filter.color.includes(el.color) || filter.release_date.includes(el.release_date)){
             return el;
         };
     })
