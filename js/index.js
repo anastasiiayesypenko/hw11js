@@ -33,7 +33,9 @@ function onFilter(event) {
       if (filter.size.includes(el.size) && filter.color.includes(el.color) && filter.release_date.includes(el.release_date)){
         return el;
       };
-
+      if (filter.release_date.length === 0 && filter.color.length === 0 && filter.size.length === 0) {
+        return el;
+      };
       if (filter.release_date.length === 0) {
         if (filter.size.includes(el.size) && filter.color.includes(el.color)){
           return el;
